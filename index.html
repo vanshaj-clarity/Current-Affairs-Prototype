@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarrthi IAS · Smart Quiz &amp; Mistake Notebook</title>
+<meta name="description" content="Practise UPSC Prelims previous year questions with Smart Quiz and fix your mistakes with the Mistake Notebook.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E9B83A'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='700' font-size='19' text-anchor='middle' fill='%230E1013'%3ES%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#0E1013;overflow:auto}
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+button:focus-visible,select:focus-visible{outline:2px solid #7FD1E8;outline-offset:2px}
+::-webkit-scrollbar{width:12px}
+::-webkit-scrollbar-thumb{background:#2A2D34;border-radius:999px;border:3px solid #0E1013}
+::-webkit-scrollbar-track{background:transparent}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.gold{background:linear-gradient(90deg,#F7D354,#E3A62A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.goldbg{background:linear-gradient(135deg,#F7D354,#E3A62A)}
+.grp{font-size:12px;font-weight:800;letter-spacing:.08em;color:#6E737B;padding:18px 20px 8px}
+.nav{display:flex;align-items:center;gap:12px;height:44px;padding:0 16px 0 20px;border:0;border-left:3px solid transparent;border-radius:0 10px 10px 0;background:transparent;color:#A3A8B0;font-size:15px;font-weight:700;width:100%;text-align:left}
+.nav:hover{background:#1A1C21;color:#FFFFFF}
+.nav.on{background:#1F2733;color:#FFFFFF;border-left-color:#7FD1E8}
+.new{margin-left:auto;background:#E5534B;color:#FFFFFF;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.04em}
+.pro{background:linear-gradient(135deg,#F7D354,#E3A62A);color:#0E1013;font-size:11px;font-weight:800;padding:2px 7px;border-radius:6px}
+.tlink{background:none;border:0;color:#A3A8B0;font-size:15px;font-weight:700;padding:8px 4px;display:inline-flex;align-items:center;gap:8px}
+.tlink:hover{color:#FFFFFF}
+.search{display:flex;align-items:center;gap:10px;height:44px;width:300px;padding:0 16px;border-radius:999px;background:#1A1C21;border:1px solid #2A2D34;color:#6E737B}
+.search:focus-within{border-color:#3A3E46}
+.search input{background:transparent;border:0;outline:0;color:#FFFFFF;font-size:14px;flex-grow:1;min-width:0}
+.search input::placeholder{color:#6E737B}
+.btn{height:44px;padding:0 22px;border-radius:999px;font-size:15px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+.bp{background:#E6E6E6;color:#0E1013;border:1px solid #E6E6E6}
+.bp:hover{background:#FFFFFF;border-color:#FFFFFF}
+.bp:disabled{background:#2A2D34;border-color:#2A2D34;color:#6E737B;cursor:not-allowed}
+.bs{background:transparent;color:#FFFFFF;border:1px solid #3A3E46}
+.bs:hover{border-color:#6E737B;background:#1A1C21}
+.bs:disabled{color:#6E737B;border-color:#2A2D34;cursor:not-allowed}
+.sm{height:38px;padding:0 16px;font-size:14px}
+.ghost{background:none;border:0;color:#E9B83A;font-weight:800;font-size:14px;padding:6px 0;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.ghost:hover{color:#F7D354;text-decoration:underline}
+.ghost:disabled{color:#6E737B;text-decoration:none;cursor:not-allowed}
+.card{background:#1A1C21;border:1px solid #2A2D34;border-radius:16px}
+.hov{transition:border-color .15s,background .15s}
+.hov:hover{border-color:#3A3E46}
+.nodata{opacity:.5}
+.pick{background:#1A1C21;border:1px solid #2A2D34;border-radius:16px;color:#FFFFFF;text-align:left;transition:border-color .15s,background .15s,opacity .15s}
+.pick:hover{border-color:#3A3E46;background:#1D2025}
+.pick.sel{border-color:#E9B83A;box-shadow:inset 0 0 0 1px #E9B83A;background:#1E1C17}
+.pick:disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+.itile{width:48px;height:48px;border-radius:14px;background:#22252B;color:#E9B83A;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pick.sel .itile{background:#2A2618}
+.cb{width:22px;height:22px;border-radius:6px;border:1.5px solid #4A4E57;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cb.on{background:linear-gradient(135deg,#F7D354,#E3A62A);border-color:transparent}
+.radio{width:22px;height:22px;border-radius:999px;border:1.5px solid #4A4E57;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.radio.on{border-color:#E9B83A}
+.radio.on::after{content:'';width:10px;height:10px;border-radius:999px;background:#E9B83A}
+.chip{height:40px;padding:0 16px;border-radius:999px;border:1px solid #2A2D34;background:#1A1C21;color:#A3A8B0;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:border-color .15s,color .15s}
+.chip:hover{border-color:#3A3E46;color:#FFFFFF}
+.chip.on{background:#2A2618;border-color:#E9B83A;color:#F7D354}
+.chip:disabled{opacity:.4;cursor:not-allowed}
+.ccount{font-size:12px;opacity:.75}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#22252B;color:#A3A8B0;font-size:13px;font-weight:700;white-space:nowrap}
+.tag.new{margin-left:0;background:#2A2618;color:#F7D354}
+.qbadge{height:28px;min-width:40px;padding:0 10px;border-radius:8px;background:#22252B;color:#F7D354;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.opt{width:100%;min-height:64px;display:flex;align-items:center;gap:16px;padding:14px 20px;border-radius:14px;border:1px solid #2A2D34;background:#1A1C21;color:#FFFFFF;font-size:16px;font-weight:600;text-align:left;transition:border-color .15s,background .15s}
+.opt:hover{border-color:#3A3E46;background:#1D2025}
+.opt.sel{border-color:#E9B83A;box-shadow:inset 0 0 0 1px #E9B83A;background:#1E1C17}
+.opt.locked{cursor:default}
+.opt.locked:hover{background:#1A1C21;border-color:#2A2D34}
+.opt.ok,.opt.ok:hover{background:rgba(61,191,122,.12);border-color:#3DBF7A;box-shadow:inset 0 0 0 1px #3DBF7A}
+.opt.bad,.opt.bad:hover{background:rgba(229,83,75,.12);border-color:#E5534B;box-shadow:inset 0 0 0 1px #E5534B}
+.opt.okline,.opt.okline:hover{border-color:#3DBF7A;box-shadow:inset 0 0 0 1px #3DBF7A}
+.opt.dim{opacity:.55}
+.num{width:32px;height:32px;border-radius:999px;background:#22252B;color:#A3A8B0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
+.res{width:28px;height:28px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.res.ok{background:#3DBF7A;color:#0E1013}
+.res.bad{background:#E5534B;color:#FFFFFF}
+.pq{height:44px;border-radius:10px;border:1px solid #2A2D34;background:#1A1C21;color:#A3A8B0;font-weight:800;font-size:14px;transition:border-color .15s}
+.pq:hover{border-color:#6E737B;color:#FFFFFF}
+.pq.ok{background:#3DBF7A;border-color:#3DBF7A;color:#0E1013}
+.pq.bad{background:#E5534B;border-color:#E5534B;color:#FFFFFF}
+.pq.skip{background:#3A3E46;border-color:#3A3E46;color:#E6E6E6}
+.pq.ans{background:linear-gradient(135deg,#F7D354,#E3A62A);border-color:transparent;color:#0E1013}
+.pq.hollow{background:transparent;border:1.5px dashed #6E737B;color:#A3A8B0}
+.pq.cur{box-shadow:0 0 0 2px #121417,0 0 0 4px #FFFFFF;color:#FFFFFF}
+.pq.ok.cur,.pq.ans.cur{color:#0E1013}
+.lg{width:16px;height:16px;border-radius:5px;border:1px solid #3A3E46;background:#1A1C21;flex-shrink:0}
+.lg.ok{background:#3DBF7A;border-color:#3DBF7A}
+.lg.bad{background:#E5534B;border-color:#E5534B}
+.lg.skip{background:#3A3E46}
+.lg.ans{background:#E9B83A;border-color:#E9B83A}
+.lg.hollow{background:transparent;border:1.5px dashed #6E737B}
+.lg.cur{background:transparent;border:2px solid #FFFFFF}
+.step{background:none;border:0;padding:0;text-align:left;color:#6E737B;display:flex;flex-direction:column;gap:14px}
+.step:disabled{cursor:default}
+.snum{width:28px;height:28px;border-radius:999px;border:1.5px solid #3A3E46;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.sbar{height:3px;border-radius:999px;background:#2A2D34}
+.step.active{color:#FFFFFF}
+.step.active .snum{border-color:#E9B83A;color:#F7D354}
+.step.active .sbar{background:linear-gradient(90deg,#F7D354,#E3A62A)}
+.step.done{color:#A3A8B0}
+.step.done .snum{background:#2A2618;border-color:#2A2618;color:#F7D354}
+.step.done .sbar{background:#5A4A22}
+.step.done:hover{color:#FFFFFF}
+.demo{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px dashed #3A3E46;border-radius:12px}
+.demolabel{font-size:11px;font-weight:800;letter-spacing:.08em;color:#6E737B;padding:0 8px;text-transform:uppercase}
+.segb{height:30px;padding:0 12px;border-radius:8px;border:0;background:transparent;color:#A3A8B0;font-size:13px;font-weight:700}
+.segb:hover{color:#FFFFFF;background:#22252B}
+.segb.on{background:#2A2D34;color:#FFFFFF}
+.tipwrap{position:relative}
+.tip{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:#E6E6E6;color:#0E1013;font-size:13px;font-weight:800;padding:8px 12px;border-radius:10px;white-space:nowrap;display:none;z-index:10}
+.tipwrap:hover .tip{display:block}
+.bar{height:8px;border-radius:999px;background:#2A2D34;overflow:hidden}
+.fill{height:100%;border-radius:999px}
+.hdot{width:8px;height:8px;border-radius:999px;border:0;background:#3A3E46;padding:0;transition:width .2s,background .2s}
+.hdot:hover{background:#6E737B}
+.hdot.on{width:28px;background:linear-gradient(90deg,#F7D354,#E3A62A)}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.1em;color:#F07A73}
+.livedot{width:8px;height:8px;border-radius:999px;background:#E5534B}
+.crumb{background:none;border:0;padding:0;color:#A3A8B0;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.crumb:hover{color:#FFFFFF;text-decoration:underline}
+.acc{overflow:hidden;transition:border-color .15s}
+.acc:hover{border-color:#3A3E46}
+.acchead{width:100%;display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:none;border:0;color:#FFFFFF;text-align:left}
+.qtext{white-space:pre-line;font-size:16px;line-height:1.55;font-weight:700}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.clamp1{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.chev{transition:transform .2s;color:#6E737B;margin-top:4px}
+.chev.up{transform:rotate(180deg);color:#FFFFFF}
+.arow{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:#15171B;font-size:15px;font-weight:600}
+.adot{width:10px;height:10px;border-radius:999px;flex-shrink:0}
+.alabel{color:#6E737B;font-size:13px;font-weight:800;width:120px;flex-shrink:0}
+.solbox{background:#22252B;border:1px solid #2A2D34;border-radius:16px;padding:20px 24px;display:flex;flex-direction:column;gap:10px}
+.soltext{margin:0;color:#D5D8DD;line-height:1.65;font-size:15px}
+.note{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:#A3A8B0}
+.note.ok{color:#3DBF7A}
+.note.bad{color:#F07A73}
+.st{height:26px;padding:0 10px;border-radius:999px;font-size:13px;font-weight:800;display:inline-flex;align-items:center}
+.st.ok{background:rgba(61,191,122,.12);color:#3DBF7A}
+.st.bad{background:rgba(229,83,75,.12);color:#F07A73}
+.st.skip{background:#22252B;color:#A3A8B0}
+.tab{height:40px;padding:0 16px;border-radius:999px;border:1px solid #2A2D34;background:transparent;color:#A3A8B0;font-weight:800;font-size:14px;display:inline-flex;gap:8px;align-items:center}
+.tab:hover{color:#FFFFFF;border-color:#3A3E46}
+.tab.on{background:#E6E6E6;color:#0E1013;border-color:#E6E6E6}
+.overlay{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(5,6,8,.72);display:flex;align-items:center;justify-content:center;z-index:80}
+.modal{width:480px;background:#1A1C21;border:1px solid #2A2D34;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+.toast{position:absolute;z-index:90;display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;background:#22252B;border:1px solid #3A3E46;color:#FFFFFF;font-weight:800;font-size:15px;box-shadow:0 12px 32px rgba(0,0,0,.45);animation:tin .25s ease-out}
+.slide{animation:slide .28s ease-out}
+@keyframes slide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes tin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.freshpill{height:24px;padding:0 10px;border-radius:999px;border:1px solid #E9B83A;color:#F7D354;font-size:12px;font-weight:800;display:inline-flex;align-items:center;gap:6px}
+.goldpill{height:32px;padding:0 14px;border-radius:999px;background:#2A2618;border:1px solid #6B5620;color:#F7D354;font-weight:800;font-size:13px;display:inline-flex;align-items:center}
+.selwrap{position:relative;display:inline-flex;align-items:center}
+.selwrap select{height:40px;background:#1A1C21;border:1px solid #2A2D34;border-radius:999px;color:#FFFFFF;padding:0 38px 0 16px;font-size:14px;font-weight:700;appearance:none;-webkit-appearance:none;cursor:pointer}
+.selwrap select:hover{border-color:#3A3E46}
+.selwrap svg{position:absolute;right:14px;pointer-events:none;color:#A3A8B0}
+.numin{width:120px;height:44px;background:#0E1013;border:1px solid #3A3E46;border-radius:12px;color:#FFFFFF;font-size:16px;font-weight:700;padding:0 14px}
+.numin:focus{outline:2px solid #E9B83A;outline-offset:1px}
+.jbtn{height:36px;padding:0 14px;border-radius:999px;border:1px dashed #6E737B;background:#121417;color:#A3A8B0;font-size:13px;font-weight:800;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.jbtn:hover{color:#FFFFFF;border-color:#A3A8B0}
+.jpanel{position:absolute;bottom:46px;width:310px;max-height:640px;overflow-y:auto;background:#1A1C21;border:1px solid #3A3E46;border-radius:16px;padding:10px;box-shadow:0 20px 48px rgba(0,0,0,.55);display:flex;flex-direction:column;gap:2px}
+.jitem{display:flex;align-items:center;gap:10px;width:100%;min-height:34px;padding:0 10px;border:0;border-radius:8px;background:transparent;color:#D5D8DD;font-size:13px;font-weight:700;text-align:left}
+.jitem:hover{background:#22252B}
+.jitem.on{background:#2A2618;color:#F7D354}
+.jcode{width:34px;font-weight:800;color:#6E737B;font-size:12px;flex-shrink:0}
+.tcard{display:flex;align-items:center;gap:18px;padding:20px;text-align:left;color:#FFFFFF}
+.tcard:hover{border-color:#3A3E46}
+.cardbtn{flex-grow:1;display:flex;align-items:center;gap:16px;background:none;border:0;color:#FFFFFF;text-align:left;padding:0;min-width:0}
+.cardbtn:disabled{cursor:default}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-template">
+<div style="width: 100vw; height: 100vh; min-width: 1280px; min-height: 680px; position: relative; overflow: hidden; background: #0E1013; color: #FFFFFF; font-family: 'Nunito', system-ui, sans-serif;">
+
+<sc-if value="{{shell}}" hint-placeholder-val="{{true}}">
+<header style="position: absolute; left: 0; top: 0; right: 0; height: 80px; display: flex; align-items: center; gap: 20px; padding: 0 32px 0 24px; border-bottom: 1px solid #1C1F24; background: #0E1013; z-index: 5;">
+<button onClick="{{goHome}}" aria-label="Sarrthi IAS home" style="display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 0; width: 216px; color: #FFFFFF;">
+<span class="goldbg" style="width: 38px; height: 38px; border-radius: 11px; display: flex; align-items: center; justify-content: center; color: #0E1013; font-weight: 800; font-size: 19px;">S</span>
+<span style="font-size: 20px; font-weight: 800; letter-spacing: 0.2px;">Sarrthi IAS</span>
+</button>
+<button class="tlink" onClick="{{notInProto}}">The Shortlist <span class="pro">PRO</span></button>
+<button class="tlink" onClick="{{goHome}}">Home</button>
+<button class="tlink" onClick="{{notInProto}}">Library</button>
+<label class="search">
+<svg class="ic" viewBox="0 0 24 24" width="18" height="18"><path d="M11 4a7 7 0 1 0 0 14a7 7 0 1 0 0-14zM20 20l-4-4"></path></svg>
+<input type="search" placeholder="Search for a Concept" aria-label="Search for a Concept">
+</label>
+<div style="flex-grow: 1;"></div>
+<button class="btn bs sm" onClick="{{notInProto}}">My Subscription</button>
+<button class="btn bs sm" onClick="{{notInProto}}" style="gap: 8px;">
+<svg class="ic" viewBox="0 0 24 24" width="18" height="18"><path d="M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2"></path></svg>
+Get the app
+</button>
+<div style="display: flex; align-items: center; gap: 10px; padding-left: 4px;">
+<span style="font-size: 15px; font-weight: 700; color: #A3A8B0;">Hi, <span style="color: #FFFFFF;">Aarav</span></span>
+<span style="width: 40px; height: 40px; border-radius: 999px; background: #22252B; border: 1px solid #3A3E46; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #F7D354;">A</span>
+</div>
+</header>
+
+<nav aria-label="Main" style="position: absolute; left: 0; top: 80px; width: 260px; bottom: 0; background: #121417; padding: 12px 16px 24px 0; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #1A1D22;">
+<div class="grp">LEARN ONLINE</div>
+<button class="nav" onClick="{{notInProto}}"><svg class="ic" viewBox="0 0 24 24" width="20" height="20"><path d="M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3zM21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"></path></svg>Study</button>
+<button class="{{navCA}}" onClick="{{goHome}}"><svg class="ic" viewBox="0 0 24 24" width="20" height="20"><path d="M4 5h13v14H6a2 2 0 0 1-2-2zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5M8 16h3"></path></svg>Current Affairs<span class="new">NEW</span></button>
+<button class="nav" onClick="{{notInProto}}"><svg class="ic" viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16 5l3.5-1 3 15.5-3.5 1z"></path></svg>Library</button>
+<div class="grp">STUDY PACKS</div>
+<button class="nav" onClick="{{notInProto}}"><svg class="ic" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"></path></svg>Batches</button>
+<div class="grp">MORE</div>
+<button class="nav" onClick="{{notInProto}}"><svg class="ic" viewBox="0 0 24 24" width="20" height="20"><path d="M4 5h16v12H8l-4 3z"></path></svg>Contact Us</button>
+<button class="nav" onClick="{{notInProto}}"><svg class="ic" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg>Privacy Policy</button>
+<div style="flex-grow: 1;"></div>
+<button class="{{navSet}}" onClick="{{goSettings}}"><svg class="ic" viewBox="0 0 24 24" width="20" height="20"><path d="M12 9a3 3 0 1 0 0 6a3 3 0 1 0 0-6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg>Settings</button>
+<div style="height: 48px;"></div>
+</nav>
+
+<div style="position: absolute; left: 260px; top: 80px; right: 0; bottom: 0;">
+
+<sc-if value="{{isA0}}" hint-placeholder-val="{{true}}">
+<div style="height: 100%; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 32px 48px 72px; display: flex; flex-direction: column; gap: 24px;">
+<div class="card" style="position: relative; height: 300px; overflow: hidden; display: flex; align-items: center; justify-content: space-between; padding: 0 48px 0 56px; background: linear-gradient(120deg, #1C1E23 0%, #17191D 55%, #231F16 100%);">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 460px;">
+<span class="live"><span class="livedot"></span>LIVE NOW</span>
+<h1 class="gold" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 800;">Live Lecture</h1>
+<p style="margin: 0; font-size: 18px; color: #A3A8B0;">Interactive Class in Session</p>
+<div style="padding-top: 6px;"><button class="btn bp" onClick="{{watchNow}}">Watch Now</button></div>
+</div>
+<svg viewBox="0 0 380 240" width="380" height="240" aria-hidden="true">
+<rect x="40" y="16" width="300" height="184" rx="18" fill="#22252B" stroke="#30343B"></rect>
+<rect x="58" y="34" width="264" height="148" rx="10" fill="#131519"></rect>
+<rect x="76" y="52" width="88" height="8" rx="4" fill="#2A2D34"></rect>
+<rect x="76" y="68" width="56" height="8" rx="4" fill="#2A2D34"></rect>
+<rect x="232" y="146" width="72" height="8" rx="4" fill="#2A2D34"></rect>
+<circle cx="190" cy="108" r="32" fill="#E9B83A"></circle>
+<path d="M180 92v32l26-16z" fill="#0E1013"></path>
+<rect x="160" y="200" width="60" height="14" rx="3" fill="#2A2D34"></rect>
+<rect x="120" y="214" width="140" height="8" rx="4" fill="#22252B"></rect>
+<circle cx="326" cy="30" r="9" fill="#E5534B"></circle>
+<circle cx="326" cy="30" r="16" fill="none" stroke="#E5534B" stroke-opacity="0.35"></circle>
+</svg>
+</div>
+<div style="display: flex; justify-content: center; gap: 8px; margin-top: -8px;">
+<sc-for list="{{heroDots}}" as="d" hint-placeholder-count="4">
+<button class="{{d.cls}}" onClick="{{d.tap}}" aria-label="{{d.label}}"></button>
+</sc-for>
+</div>
+
+<div style="display: flex; align-items: baseline; justify-content: space-between; margin-top: 8px;">
+<h2 style="margin: 0; font-size: 24px; font-weight: 800;">Practice</h2>
+<span style="color: #6E737B; font-size: 13px;">UPSC Prelims PYQs 2022–26 · Current Affairs questions coming soon</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+<div class="card hov" style="padding: 28px; display: flex; flex-direction: column; gap: 18px;">
+<div style="display: flex; align-items: center; gap: 14px;">
+<span class="goldbg" style="width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0E1013;"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" style="stroke-width: 2;"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px;">
+<span style="font-size: 22px; font-weight: 800;">Smart Quiz</span>
+<span style="color: #6E737B; font-size: 13px;">494 UPSC PYQs · Prelims 2022–26</span>
+</div>
+</div>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px; line-height: 1.5;">Pick subjects and years, practise unseen UPSC questions</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap;">
+<span class="tag">Unseen first</span>
+<span class="tag">UPSC PYQs 2022–26</span>
+<span class="tag">Practice or Exam mode</span>
+</div>
+<div style="margin-top: auto; padding-top: 6px;">
+<button class="btn bp" onClick="{{startSmartA0}}">Start Smart Quiz <svg class="ic" viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+<div class="card hov" style="padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; align-items: center; gap: 14px;">
+<span class="itile"><svg class="ic" viewBox="0 0 24 24" width="24" height="24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6"></path></svg></span>
+<span style="font-size: 22px; font-weight: 800;">Mistake Notebook</span>
+</div>
+<div style="display: flex; align-items: baseline; gap: 10px;">
+<span style="font-size: 52px; font-weight: 800; line-height: 1;">{{nbTotal}}</span>
+<span style="color: #A3A8B0; font-size: 16px;">questions to fix</span>
+</div>
+<div style="display: flex; gap: 3px; height: 6px;">
+<sc-for list="{{strip}}" as="g" hint-placeholder-count="8">
+<span title="{{g.title}}" style="flex-grow: {{g.n}}; flex-basis: 0; border-radius: 999px; background: {{g.c}};"></span>
+</sc-for>
+</div>
+<span style="color: #6E737B; font-size: 13px; margin-top: -6px;">{{stripCaption}}</span>
+<div style="display: flex; align-items: center; gap: 20px; margin-top: auto; padding-top: 6px;">
+<button class="btn bp" onClick="{{openNotebook}}">Open Notebook</button>
+<button class="ghost" onClick="{{startMQAll}}" disabled="{{nbZero}}">Start Mistake Quiz · {{nbTotal}}</button>
+</div>
+</div>
+</div>
+
+<div style="display: flex; align-items: baseline; justify-content: space-between; margin-top: 16px;">
+<h2 style="margin: 0; font-size: 24px; font-weight: 800;">Teachers' Section</h2>
+<span style="color: #6E737B; font-size: 13px;">Current Affairs faculty · {{teacherCount}} teachers</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+<sc-for list="{{teachers}}" as="t" hint-placeholder-count="9">
+<button class="card tcard" onClick="{{notInProto}}" style="align-items: flex-start; gap: 16px; padding: 20px;">
+<img src="{{t.photo}}" alt="{{t.name}}" width="72" height="72" style="width: 72px; height: 72px; border-radius: 999px; object-fit: cover; border: 2px solid #E9B83A; background: #F2F2F2; flex-shrink: 0;">
+<span style="display: flex; flex-direction: column; gap: 8px; min-width: 0; flex-grow: 1;">
+<span style="font-size: 17px; font-weight: 800; line-height: 1.25;">{{t.name}}</span>
+<span style="font-size: 13px; color: #A3A8B0; line-height: 1.45; white-space: pre-line;">{{t.creds}}</span>
+<span style="display: flex; gap: 6px; flex-wrap: wrap; padding-top: 2px;">
+<span class="tag" style="background: #2A2618; color: #F7D354; white-space: normal; height: auto; min-height: 26px; padding: 3px 10px;">{{t.subject}}</span>
+<span class="tag" style="gap: 6px;"><svg class="ic" viewBox="0 0 24 24" width="13" height="13"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg>{{t.when}}</span>
+</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isWizard}}" hint-placeholder-val="{{false}}">
+<div style="height: 100%; display: flex; flex-direction: column;">
+<div style="flex-grow: 1; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 28px 48px 40px; display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; align-items: center; justify-content: space-between;">
+<nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6E737B;">
+<button class="crumb" onClick="{{goHome}}">Current Affairs</button><span>/</span><span style="color: #FFFFFF; font-weight: 700;">Smart Quiz</span>
+</nav>
+<button class="btn bs sm" onClick="{{wizCancel}}">Cancel</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="3">
+<button class="step {{st.cls}}" onClick="{{st.on}}" disabled="{{st.locked}}">
+<span style="display: flex; align-items: center; gap: 10px;">
+<span class="snum">
+<sc-if value="{{st.done}}" hint-placeholder-val="{{false}}"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width: 3;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>
+<sc-if value="{{st.notDone}}" hint-placeholder-val="{{true}}">{{st.num}}</sc-if>
+</span>
+<span style="font-size: 15px; font-weight: 800;">{{st.label}}</span>
+</span>
+<span class="sbar" style="width: 100%;"></span>
+</button>
+</sc-for>
+</div>
+
+<sc-if value="{{isA1}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<h2 style="margin: 0; font-size: 18px; font-weight: 800;">Question bank</h2>
+<div role="radiogroup" aria-label="Question bank" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{srcTabs}}" as="sx" hint-placeholder-count="2">
+<button class="pick {{sx.cls}}" onClick="{{sx.tap}}" role="radio" aria-checked="{{sx.on}}" disabled="{{sx.off}}" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px;">
+<span class="itile"><svg class="ic" viewBox="0 0 24 24" width="24" height="24"><path d="{{sx.d}}"></path></svg></span>
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px;">
+<span style="font-size: 18px; font-weight: 800;">{{sx.title}}</span>
+<span style="font-size: 13px; color: #A3A8B0;">{{sx.cap}}</span>
+</span>
+<span class="{{sx.radioCls}}"></span>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<h1 style="margin: 0; font-size: 28px; font-weight: 800;">Which subjects do you want to practise?</h1>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px;">Pick one or more. Counts show questions you haven't seen yet.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{a1Subj}}" as="sb" hint-placeholder-count="8">
+<button class="pick {{sb.cls}}" onClick="{{sb.tap}}" aria-pressed="{{sb.on}}" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; min-height: 84px;">
+<span class="itile"><svg class="ic" viewBox="0 0 24 24" width="24" height="24"><path d="{{sb.d}}"></path></svg></span>
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px;">
+<span style="font-size: 18px; font-weight: 800;">{{sb.name}}</span>
+<span style="font-size: 13px; color: #A3A8B0;">{{sb.cap}}</span>
+</span>
+<span class="cb {{sb.cbCls}}"><sc-if value="{{sb.on}}" hint-placeholder-val="{{false}}"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="color: #0E1013; stroke-width: 3.2;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if></span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isA2}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; align-items: flex-end; justify-content: space-between;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<h1 style="margin: 0; font-size: 28px; font-weight: 800;">{{a2Title}}</h1>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px;">{{a2Subline}}</p>
+</div>
+<span class="goldpill">{{a2Badge}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{a2Months}}" as="m" hint-placeholder-count="5">
+<div class="tipwrap">
+<button class="pick {{m.cls}}" onClick="{{m.tap}}" disabled="{{m.dim}}" aria-pressed="{{m.on}}" style="width: 100%; height: 176px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+<span style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+<span style="display: flex; flex-direction: column;">
+<span style="font-size: 32px; font-weight: 800; line-height: 1.1;">{{m.short}}</span>
+<span style="color: #A3A8B0; font-size: 15px; font-weight: 700;">{{m.sub}}</span>
+</span>
+<span class="cb {{m.cbCls}}"><sc-if value="{{m.on}}" hint-placeholder-val="{{false}}"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="color: #0E1013; stroke-width: 3.2;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if></span>
+</span>
+<span style="color: #A3A8B0; font-size: 13px;">{{m.cap}}</span>
+</button>
+<sc-if value="{{m.dim}}" hint-placeholder-val="{{false}}"><span class="tip" role="tooltip">Maximum 3 months per quiz</span></sc-if>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; color: #6E737B; font-size: 13px;">{{a2Note}}</p>
+</div>
+</sc-if>
+
+<sc-if value="{{isA3}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<h1 style="margin: 0; font-size: 28px; font-weight: 800;">Set your preferences</h1>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px;">{{a3Recap}}</p>
+</div>
+<sc-if value="{{showDemo}}" hint-placeholder-val="{{true}}">
+<div class="demo" role="group" aria-label="Demo states">
+<span class="demolabel">Demo states</span>
+<sc-for list="{{demoStates}}" as="d" hint-placeholder-count="4">
+<button class="{{d.cls}}" onClick="{{d.tap}}">{{d.label}}</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{isExhausted}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 16px; border: 1px solid #E9B83A; background: rgba(233, 184, 58, 0.07);">
+<svg class="ic" viewBox="0 0 24 24" width="24" height="24" style="color: #F7D354;"><path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 2px;">
+<span style="font-weight: 800; font-size: 16px;">{{exhaustedText}}</span>
+<span style="color: #A3A8B0; font-size: 13px;">Questions repeat from the start of the cycle, in the same order you first saw them.</span>
+</div>
+</div>
+</sc-if>
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<h2 style="margin: 0; font-size: 18px; font-weight: 800;">Number of questions</h2>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{a3Counts}}" as="c" hint-placeholder-count="4">
+<button class="pick {{c.cls}}" onClick="{{c.tap}}" aria-pressed="{{c.on}}" style="height: 96px; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; gap: 2px;">
+<span style="font-size: 28px; font-weight: 800;">{{c.big}}</span>
+<span style="font-size: 13px; color: #A3A8B0;">{{c.cap}}</span>
+</button>
+</sc-for>
+</div>
+<sc-if value="{{isCustom}}" hint-placeholder-val="{{false}}">
+<div class="card slide" style="padding: 16px 20px; display: flex; align-items: center; gap: 16px;">
+<label for="customq" style="font-weight: 800; font-size: 15px;">How many questions?</label>
+<input id="customq" class="numin" type="number" min="3" max="50" placeholder="e.g. 25" value="{{customVal}}" onChange="{{onCustom}}">
+<span style="font-size: 13px; color: {{customHintColor}};">{{customHint}}</span>
+</div>
+</sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<h2 style="margin: 0; font-size: 18px; font-weight: 800;">Mode</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{a3Modes}}" as="md" hint-placeholder-count="2">
+<button class="pick {{md.cls}}" onClick="{{md.tap}}" aria-pressed="{{md.on}}" style="padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start; min-height: 112px;">
+<span class="itile"><svg class="ic" viewBox="0 0 24 24" width="24" height="24"><path d="{{md.d}}"></path></svg></span>
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 20px; font-weight: 800;">{{md.title}}</span>
+<span style="color: #A3A8B0; font-size: 15px; line-height: 1.45;">{{md.desc}}</span>
+</span>
+<span class="{{md.radioCls}}"></span>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+
+<sc-if value="{{isA3}}" hint-placeholder-val="{{false}}">
+<div style="height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 48px; border-top: 1px solid #2A2D34; background: {{availBg}}; flex-shrink: 0;">
+<svg class="ic" viewBox="0 0 24 24" width="20" height="20" style="color: {{availIcon}};"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM12 11v5M12 8h.01"></path></svg>
+<span style="font-size: 15px; font-weight: 800; color: {{availColor}};">{{availLine}}</span>
+<span style="margin-left: auto; font-size: 13px; color: #6E737B;">Unseen questions first · no repeats until this filter is exhausted</span>
+</div>
+</sc-if>
+<div style="height: 80px; flex-shrink: 0; border-top: 1px solid #2A2D34; background: #121417; display: flex; align-items: center; gap: 16px; padding: 0 48px;">
+<sc-if value="{{wizShowPrev}}" hint-placeholder-val="{{false}}"><button class="btn bs" onClick="{{wizPrev}}">Previous</button></sc-if>
+<div style="flex-grow: 1;"></div>
+<span style="font-size: 14px; font-weight: 700; color: #A3A8B0;">{{wizCounter}}</span>
+<button class="btn bp" onClick="{{wizNext}}" disabled="{{wizNextDisabled}}">{{wizNextLabel}}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isA5}}" hint-placeholder-val="{{false}}">
+<div style="height: 100%; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 32px 48px 72px; display: flex; flex-direction: column; gap: 24px;">
+<div class="card" style="padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 800;">Session Summary</h1>
+<div style="display: flex; gap: 8px; flex-wrap: wrap;">
+<sc-for list="{{sum.chips}}" as="c" hint-placeholder-count="5"><span class="tag">{{c.t}}</span></sc-for>
+</div>
+</div>
+<div style="display: flex; gap: 12px; flex-shrink: 0;">
+<button class="btn bs" onClick="{{reattempt}}"><svg class="ic" viewBox="0 0 24 24" width="18" height="18"><path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4"></path></svg>Reattempt</button>
+<button class="btn bp" onClick="{{viewSolutions}}">View Solutions</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+<sc-for list="{{sum.tiles}}" as="t" hint-placeholder-count="3">
+<div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+<span style="font-size: 14px; font-weight: 800; color: #A3A8B0;">{{t.label}}</span>
+<span style="font-size: 36px; font-weight: 800; line-height: 1;">{{t.val}}</span>
+<div class="bar"><div class="fill" style="width: {{t.pct}}%; background: {{t.color}};"></div></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+<sc-for list="{{sum.stats}}" as="t" hint-placeholder-count="3">
+<div class="card" style="padding: 20px 24px; display: flex; align-items: center; gap: 16px;">
+<span class="itile" style="color: #A3A8B0;"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="{{t.d}}"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 2px;">
+<span style="font-size: 13px; color: #A3A8B0; font-weight: 700;">{{t.label}}</span>
+<span style="font-size: 24px; font-weight: 800;">{{t.val}}</span>
+</span>
+</div>
+</sc-for>
+</div>
+<div class="card" style="padding: 24px 28px; display: flex; flex-direction: column; gap: 18px;">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800;">By subject</h2>
+<sc-for list="{{sum.bySubj}}" as="b" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: 220px minmax(0, 1fr) 120px; align-items: center; gap: 20px;">
+<span style="font-weight: 800; font-size: 15px;">{{b.name}}</span>
+<div class="bar" style="height: 10px;"><div class="fill goldbg" style="width: {{b.pct}}%;"></div></div>
+<span style="font-size: 14px; color: #A3A8B0; text-align: right; font-weight: 700;">{{b.label}}</span>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{sum.showAdded}}" hint-placeholder-val="{{true}}">
+<div class="card" style="padding: 24px 28px; display: flex; align-items: center; gap: 20px; border-left: 4px solid #E9B83A;">
+<span class="itile"><svg class="ic" viewBox="0 0 24 24" width="24" height="24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6"></path></svg></span>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 18px; font-weight: 800;">{{sum.addedText}}</span>
+<span style="color: #A3A8B0; font-size: 15px;">They'll stay there until you get them right in a Mistake Quiz</span>
+</div>
+<button class="btn bp" onClick="{{openNotebook}}">Open Notebook</button>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isA6}}" hint-placeholder-val="{{false}}">
+<div style="height: 100%; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 28px 48px 72px; display: flex; flex-direction: column; gap: 22px;">
+<div><button class="crumb" onClick="{{backToSummary}}"><svg class="ic" viewBox="0 0 24 24" width="18" height="18"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Back to Summary</button></div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 800;">Solutions</h1>
+<span style="color: #A3A8B0; font-size: 15px;">{{solRecap}}</span>
+</div>
+<div role="tablist" style="display: flex; gap: 10px;">
+<sc-for list="{{solTabs}}" as="t" hint-placeholder-count="4">
+<button role="tab" class="{{t.cls}}" aria-selected="{{t.on}}" onClick="{{t.tap}}">{{t.label}} <span style="opacity: 0.7;">{{t.count}}</span></button>
+</sc-for>
+</div>
+<sc-for list="{{solList}}" as="q" hint-placeholder-count="3">
+<div class="card" style="padding: 24px 28px; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; align-items: center; gap: 10px;">
+<span class="qbadge">{{q.num}}</span>
+<span class="{{q.stCls}}">{{q.stLabel}}</span>
+<span style="flex-grow: 1;"></span>
+<span class="tag">{{q.subj}}</span><span class="tag">{{q.month}}</span>
+</div>
+<div class="qtext" style="font-size: 17px;">{{q.text}}</div>
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<div class="arow"><span class="adot" style="background: {{q.yourDot}};"></span><span class="alabel">Your answer</span><span style="color: {{q.yourColor}};">{{q.yourText}}</span></div>
+<sc-if value="{{q.showCorrect}}" hint-placeholder-val="{{true}}">
+<div class="arow"><span class="adot" style="background: #3DBF7A;"></span><span class="alabel">Correct answer</span><span>{{q.correctText}}</span></div>
+</sc-if>
+</div>
+<div class="solbox"><span style="font-weight: 800;">Solution</span><p class="soltext">{{q.sol}}</p></div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isB1}}" hint-placeholder-val="{{false}}">
+<div style="height: 100%; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 28px 48px 72px; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; align-items: center; justify-content: space-between;">
+<nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6E737B;">
+<button class="crumb" onClick="{{goHome}}">Current Affairs</button><span>/</span><span style="color: #FFFFFF; font-weight: 700;">Mistake Notebook</span>
+</nav>
+
+</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<h1 style="margin: 0; font-size: 40px; font-weight: 800; line-height: 1.1;">Mistake Notebook</h1>
+<sc-if value="{{b1Full}}" hint-placeholder-val="{{true}}"><span style="font-size: 18px; color: #A3A8B0; font-weight: 700;">{{b1Sub}}</span></sc-if>
+</div>
+<sc-if value="{{b1Full}}" hint-placeholder-val="{{true}}"><button class="btn bp" onClick="{{b1Start}}" disabled="{{b1CtaDisabled}}">{{b1Cta}}</button></sc-if>
+</div>
+<sc-if value="{{b1Full}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+<sc-for list="{{b1Chips}}" as="c" hint-placeholder-count="6">
+<button class="{{c.cls}}" onClick="{{c.tap}}" aria-pressed="{{c.on}}">{{c.label}} <span class="ccount">{{c.count}}</span></button>
+</sc-for>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; color: #6E737B; font-size: 13px;">
+<svg class="ic" viewBox="0 0 24 24" width="16" height="16"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM12 11v5M12 8h.01"></path></svg>
+Wrong answers from any quiz land here. A question leaves only when you answer it correctly in a Mistake Quiz.
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{b1Cards}}" as="c" hint-placeholder-count="8">
+<div class="{{c.cardCls}}" style="display: flex; align-items: center; gap: 16px; padding: 18px 22px; min-height: 88px;">
+<button class="cardbtn" onClick="{{c.open}}" disabled="{{c.none}}">
+<span class="itile"><svg class="ic" viewBox="0 0 24 24" width="24" height="24"><path d="{{c.d}}"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 2px;">
+<span style="font-size: 18px; font-weight: 800;">{{c.name}}</span>
+<span style="font-size: 13px; color: #A3A8B0;">{{c.cap}}</span>
+</span>
+</button>
+<sc-if value="{{c.has}}" hint-placeholder-val="{{true}}"><button class="ghost" onClick="{{c.start}}">Start Mistake Quiz</button></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{b1ShowEmpty}}" hint-placeholder-val="{{false}}">
+<div class="card" style="padding: 72px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
+<svg viewBox="0 0 160 120" width="200" height="150" aria-hidden="true">
+<rect x="36" y="14" width="88" height="96" rx="10" fill="#22252B" stroke="#30343B"></rect>
+<rect x="36" y="14" width="14" height="96" rx="6" fill="#2A2D34"></rect>
+<rect x="60" y="34" width="48" height="6" rx="3" fill="#30343B"></rect>
+<rect x="60" y="48" width="36" height="6" rx="3" fill="#30343B"></rect>
+<circle cx="112" cy="86" r="22" fill="#E9B83A"></circle>
+<path d="M102 86l7 7 13-14" fill="none" stroke="#0E1013" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h2 style="margin: 0; font-size: 28px; font-weight: 800;">No mistakes yet. That's the goal.</h2>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px; max-width: 440px;">Questions you get wrong in any quiz land here automatically</p>
+<button class="btn bp" onClick="{{smartFromB1}}" style="margin-top: 8px;">Take a Smart Quiz</button>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isB2}}" hint-placeholder-val="{{false}}">
+<div style="height: 100%; display: flex; flex-direction: column;">
+<div style="flex-grow: 1; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 28px 48px 40px; display: flex; flex-direction: column; gap: 20px;">
+<nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6E737B;">
+<button class="crumb" onClick="{{goB1}}">Mistake Notebook</button><span>/</span><span style="color: #FFFFFF; font-weight: 700;">{{b2Name}}</span>
+</nav>
+<h1 style="margin: 0; font-size: 32px; font-weight: 800;">{{b2Heading}}</h1>
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+<sc-for list="{{b2Chips}}" as="c" hint-placeholder-count="6">
+<button class="{{c.cls}}" onClick="{{c.tap}}" aria-pressed="{{c.on}}">{{c.label}} <span class="ccount">{{c.count}}</span></button>
+</sc-for>
+<span style="flex-grow: 1;"></span>
+<label for="b2sort" style="font-size: 14px; color: #A3A8B0; font-weight: 700;">Sort</label>
+<span class="selwrap">
+<select id="b2sort" value="{{b2Sort}}" onChange="{{onSort}}">
+<option value="latest">Latest</option>
+<option value="oldest">Oldest</option>
+<option value="most">Missed most</option>
+</select>
+<svg class="ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 9l6 6 6-6"></path></svg>
+</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<sc-for list="{{b2Rows}}" as="r" hint-placeholder-count="4">
+<div class="card acc">
+<button class="acchead" onClick="{{r.toggle}}" aria-expanded="{{r.isOpen}}">
+<span class="qbadge">{{r.num}}</span>
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+<span class="{{r.textCls}}">{{r.text}}</span>
+<span style="display: flex; gap: 8px; flex-wrap: wrap;">
+<sc-if value="{{r.fresh}}" hint-placeholder-val="{{false}}"><span class="tag new">{{r.freshLabel}}</span></sc-if>
+<span class="tag">{{r.month}}</span><span class="tag">{{r.missed}}</span>
+</span>
+</span>
+<svg class="ic {{r.chevCls}}" viewBox="0 0 24 24" width="22" height="22"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<sc-if value="{{r.isOpen}}" hint-placeholder-val="{{false}}">
+<div class="slide" style="padding: 0 24px 24px 80px; display: flex; flex-direction: column; gap: 12px;">
+<div class="arow"><span class="adot" style="background: #E5534B;"></span><span class="alabel">Your answer</span><span>{{r.yourText}}</span></div>
+<div class="arow"><span class="adot" style="background: #3DBF7A;"></span><span class="alabel">Correct answer</span><span>{{r.correctText}}</span></div>
+<div class="solbox"><div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-weight: 800;">Solution</span><span style="font-size: 13px; color: #6E737B;">{{r.date}}</span></div><p class="soltext">{{r.sol}}</p></div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+<sc-if value="{{b2Empty}}" hint-placeholder-val="{{false}}">
+<div class="card" style="padding: 32px; text-align: center; color: #A3A8B0; font-size: 15px;">No {{b2Name}} mistakes in the selected months. Pick another month or choose All.</div>
+</sc-if>
+</div>
+</div>
+</div>
+<div style="height: 80px; flex-shrink: 0; border-top: 1px solid #2A2D34; background: #121417; display: flex; align-items: center; justify-content: space-between; padding: 0 48px;">
+<span style="font-size: 15px; font-weight: 800; color: #A3A8B0;">{{b2Bar}}</span>
+<button class="btn bp" onClick="{{b2Start}}" disabled="{{b2Empty}}">Start Mistake Quiz</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isS}}" hint-placeholder-val="{{false}}">
+<div style="height: 100%; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 32px 48px 72px; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<h1 style="margin: 0; font-size: 40px; font-weight: 800; line-height: 1.1;">Settings</h1>
+<span style="font-size: 16px; color: #A3A8B0;">Practice data for Smart Quiz and Mistake Notebook</span>
+</div>
+<div class="card" style="padding: 28px 32px; display: flex; flex-direction: column; gap: 20px; max-width: 820px;">
+<div style="display: flex; align-items: flex-start; gap: 16px;">
+<span class="itile"><svg class="ic" viewBox="0 0 24 24" width="24" height="24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 20px; font-weight: 800;">Start with a fresh notebook</span>
+<span style="color: #A3A8B0; font-size: 15px; line-height: 1.5;">Clears every previous response: all questions in your Mistake Notebook, questions you've cleared, and your quiz history. This can't be undone.</span>
+</div>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap;">
+<span class="tag">{{setNbLine}}</span>
+<span class="tag">{{setQuizLine}}</span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; padding-top: 4px;">
+<button class="btn bs" onClick="{{setAskClear}}" disabled="{{setNothing}}" style="border-color: #E5534B; color: #F07A73;">Clear all responses</button>
+<sc-if value="{{setNothing}}" hint-placeholder-val="{{false}}"><span style="color: #6E737B; font-size: 13px;">Nothing to clear yet. Your notebook is already fresh.</span></sc-if>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isB4}}" hint-placeholder-val="{{false}}">
+<div style="height: 100%; overflow-y: auto;">
+<div style="max-width: 1200px; padding: 32px 48px 72px; display: flex; flex-direction: column; gap: 24px;">
+<div class="card" style="padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<span class="gold" style="font-size: 13px; font-weight: 800;">{{b4.recap}}</span>
+<h1 style="margin: 0; font-size: 40px; font-weight: 800; line-height: 1.1;">{{b4.headline}}</h1>
+<span style="font-size: 17px; color: #A3A8B0; font-weight: 700;">{{b4.sub}}</span>
+</div>
+<div style="display: flex; gap: 12px; flex-shrink: 0;">
+<button class="btn bs" onClick="{{goB1}}">Back to Notebook</button>
+<button class="btn bp" onClick="{{b4Retry}}" disabled="{{b4.retryDisabled}}">{{b4.retryLabel}}</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+<div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+<span style="font-size: 14px; font-weight: 800; color: #A3A8B0;">Cleared</span>
+<span style="font-size: 36px; font-weight: 800; line-height: 1;">{{b4.clearedN}}</span>
+<div class="bar"><div class="fill" style="width: {{b4.clearedPct}}%; background: #3DBF7A;"></div></div>
+</div>
+<div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+<span style="font-size: 14px; font-weight: 800; color: #A3A8B0;">Still to fix</span>
+<span style="font-size: 36px; font-weight: 800; line-height: 1;">{{b4.remN}}</span>
+<div class="bar"><div class="fill" style="width: {{b4.remPct}}%; background: #E5534B;"></div></div>
+</div>
+<div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+<span style="font-size: 14px; font-weight: 800; color: #A3A8B0;">Time</span>
+<span style="font-size: 36px; font-weight: 800; line-height: 1;">{{b4.time}}</span>
+<span style="font-size: 13px; color: #6E737B;">{{b4.timeCap}}</span>
+</div>
+</div>
+<div class="card" style="padding: 24px 28px; display: flex; flex-direction: column; gap: 18px;">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800;">By subject</h2>
+<sc-for list="{{b4.rows}}" as="b" hint-placeholder-count="1">
+<div style="display: grid; grid-template-columns: 220px minmax(0, 1fr) 140px; align-items: center; gap: 20px;">
+<span style="font-weight: 800; font-size: 15px;">{{b.name}}</span>
+<div class="bar" style="height: 10px;"><div class="fill" style="width: {{b.pct}}%; background: #3DBF7A;"></div></div>
+<span style="font-size: 14px; color: #A3A8B0; text-align: right; font-weight: 700;">{{b.label}}</span>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{b4.hasRem}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800;">Still in your Notebook</h2>
+<sc-for list="{{b4.rem}}" as="q" hint-placeholder-count="3">
+<div class="card" style="padding: 16px 20px; display: flex; align-items: center; gap: 14px;">
+<span class="adot" style="background: #E5534B;"></span>
+<span class="clamp1" style="flex-grow: 1; font-weight: 700; font-size: 15px;">{{q.text}}</span>
+<span class="tag">{{q.subj}}</span><span class="tag">{{q.month}}</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+</div>
+</sc-if>
+
+<sc-if value="{{isEngine}}" hint-placeholder-val="{{false}}">
+<div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column;">
+<header style="height: 72px; flex-shrink: 0; display: flex; align-items: center; gap: 28px; padding: 0 32px; border-bottom: 1px solid #2A2D34; background: #121417;">
+<div style="display: flex; flex-direction: column; gap: 2px; width: 520px; min-width: 0;">
+<div style="display: flex; align-items: center; gap: 10px;">
+<span style="font-size: 20px; font-weight: 800;">{{E.title}}</span>
+<sc-if value="{{E.fresh}}" hint-placeholder-val="{{false}}"><span class="freshpill"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width: 2.4;"><path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4"></path></svg>Fresh round</span></sc-if>
+</div>
+<span class="gold" style="font-size: 13px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{E.sub}}</span>
+</div>
+<div style="flex-grow: 1; display: flex; align-items: center; gap: 12px;">
+<div class="bar" style="flex-grow: 1; height: 6px;"><div class="fill goldbg" style="width: {{E.pct}}%;"></div></div>
+<span style="font-size: 13px; color: #A3A8B0; white-space: nowrap; font-weight: 700;">{{E.progText}}</span>
+</div>
+<sc-if value="{{E.showFF}}" hint-placeholder-val="{{false}}">
+
+</sc-if>
+<button class="btn bs sm" onClick="{{E.exit}}">Exit</button>
+</header>
+<div style="flex-grow: 1; display: flex; min-height: 0;">
+<main style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+<div style="flex-grow: 1; overflow-y: auto;">
+<div style="max-width: 840px; margin: 0 auto; padding: 36px 48px 40px; display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: center; gap: 10px;">
+<span class="qbadge">{{E.qBadge}}</span>
+<sc-for list="{{E.tags}}" as="t" hint-placeholder-count="2"><span class="tag">{{t.t}}</span></sc-for>
+</div>
+<div style="font-size: 20px; line-height: 1.6; font-weight: 700; white-space: pre-line;">{{E.text}}</div>
+<sc-if value="{{E.showMissed}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; align-items: center; gap: 8px; color: #6E737B; font-size: 14px; font-weight: 700; margin-top: -6px;">
+<svg class="ic" viewBox="0 0 24 24" width="16" height="16"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM12 7v5l3 2"></path></svg>{{E.missedLine}}
+</div>
+</sc-if>
+<div role="radiogroup" aria-label="Options" style="display: flex; flex-direction: column; gap: 12px;">
+<sc-for list="{{E.options}}" as="o" hint-placeholder-count="4">
+<button class="{{o.cls}}" onClick="{{o.on}}" role="radio" aria-checked="{{o.picked}}">
+<span class="num">{{o.n}}</span>
+<span style="flex-grow: 1; line-height: 1.45;">{{o.text}}</span>
+<sc-if value="{{o.radio}}" hint-placeholder-val="{{true}}"><span class="{{o.radioCls}}"></span></sc-if>
+<sc-if value="{{o.tick}}" hint-placeholder-val="{{false}}"><span class="res ok"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" style="stroke-width: 3;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></sc-if>
+<sc-if value="{{o.cross}}" hint-placeholder-val="{{false}}"><span class="res bad"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width: 3;"><path d="M6 6l12 12M18 6L6 18"></path></svg></span></sc-if>
+</button>
+</sc-for>
+</div>
+<sc-if value="{{E.showSol}}" hint-placeholder-val="{{false}}">
+<div class="solbox slide">
+<sc-if value="{{E.showResult}}" hint-placeholder-val="{{false}}"><span class="{{E.resultCls}}">{{E.resultText}}</span></sc-if>
+<sc-if value="{{E.showCleared}}" hint-placeholder-val="{{false}}"><span class="note ok"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" style="stroke-width: 2.6;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Correct · cleared from your Notebook</span></sc-if>
+<sc-if value="{{E.showStays}}" hint-placeholder-val="{{false}}"><span class="note">Incorrect · stays in your Notebook</span></sc-if>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+<span style="font-weight: 800; font-size: 16px;">Solution</span>
+<span style="display: flex; gap: 8px;"><sc-for list="{{E.tags}}" as="t" hint-placeholder-count="2"><span class="tag" style="background: #1A1C21;">{{t.t}}</span></sc-for></span>
+</div>
+<p class="soltext">{{E.sol}}</p>
+</div>
+</sc-if>
+</div>
+</div>
+<footer style="height: 80px; flex-shrink: 0; border-top: 1px solid #2A2D34; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: #121417;">
+<div><sc-if value="{{E.secShow}}" hint-placeholder-val="{{true}}"><button class="btn bs" onClick="{{E.secOn}}">{{E.secLabel}}</button></sc-if></div>
+<button class="btn bp" onClick="{{E.primOn}}" disabled="{{E.primDisabled}}" style="min-width: 168px;">{{E.primLabel}}</button>
+</footer>
+</main>
+<aside aria-label="Question palette" style="width: 320px; flex-shrink: 0; border-left: 1px solid #2A2D34; background: #121417; display: flex; flex-direction: column; padding: 28px 24px 88px; gap: 18px;">
+<div style="display: flex; flex-direction: column; gap: 2px;">
+<span style="font-size: 16px; font-weight: 800;">{{E.palTitle}}</span>
+<span style="font-size: 13px; color: #A3A8B0; font-weight: 700;">{{E.palSub}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; overflow-y: auto; padding: 4px; max-height: 600px;">
+<sc-for list="{{E.palette}}" as="p" hint-placeholder-count="20">
+<button class="pq {{p.cls}}" onClick="{{p.on}}" aria-label="Go to question {{p.n}}">{{p.n}}</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 18px; padding-top: 16px; border-top: 1px solid #2A2D34;">
+<sc-for list="{{E.legend}}" as="l" hint-placeholder-count="4">
+<span style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #A3A8B0; font-weight: 700;"><span class="lg {{l.cls}}"></span>{{l.label}}</span>
+</sc-for>
+</div>
+</aside>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{examModal}}" hint-placeholder-val="{{false}}">
+<div class="overlay">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="exm-title">
+<h2 id="exm-title" style="margin: 0; font-size: 22px; font-weight: 800;">Submit quiz?</h2>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px; line-height: 1.5;">{{examModalText}}</p>
+<div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 12px;">
+<button class="btn bs" onClick="{{examReview}}">Review</button>
+<button class="btn bp" onClick="{{examSubmitNow}}">Submit</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{setModal}}" hint-placeholder-val="{{false}}">
+<div class="overlay">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="set-title">
+<h2 id="set-title" style="margin: 0; font-size: 22px; font-weight: 800;">Clear all responses?</h2>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px; line-height: 1.5;">This empties your Mistake Notebook ({{setCount}} questions) and resets your quiz history. You'll start with a fresh notebook.</p>
+<div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 12px;">
+<button class="btn bs" onClick="{{setCancel}}">Cancel</button>
+<button class="btn bp" onClick="{{setConfirm}}" style="background: #E5534B; border-color: #E5534B; color: #FFFFFF;">Clear everything</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{mqModal}}" hint-placeholder-val="{{false}}">
+<div class="overlay">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="mqm-title">
+<h2 id="mqm-title" style="margin: 0; font-size: 22px; font-weight: 800;">Exit Mistake Quiz?</h2>
+<p style="margin: 0; color: #A3A8B0; font-size: 16px; line-height: 1.5;">{{mqModalText}}</p>
+<div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 12px;">
+<button class="btn bs" onClick="{{mqExitNow}}">Exit</button>
+<button class="btn bp" onClick="{{mqKeep}}">Keep going</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{toastTR}}" hint-placeholder-val="{{false}}">
+<div class="toast" role="status" style="top: 96px; right: 32px;">
+<span class="itile" style="width: 32px; height: 32px; border-radius: 10px;"><svg class="ic" viewBox="0 0 24 24" width="18" height="18"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6"></path></svg></span>
+{{toastText}}
+</div>
+</sc-if>
+<sc-if value="{{toastBC}}" hint-placeholder-val="{{false}}">
+<div class="toast" role="status" style="bottom: 104px; left: calc((100% - 320px) / 2); transform: translateX(-50%); border-color: #3DBF7A;">
+<span class="res ok" style="width: 24px; height: 24px;"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width: 3;"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+{{toastText}}
+</div>
+</sc-if>
+
+
+
+</div>
+</template>
+<script src="app.js"></script>
+</body>
+</html>
